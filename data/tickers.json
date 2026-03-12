@@ -1,0 +1,22 @@
+[
+  {
+    "command": "gold",
+    "symbol": "XAU",
+    "asset_type": "metal"
+  },
+  {
+    "command": "btc",
+    "symbol": "BTC",
+    "asset_type": "crypto"
+  },
+  {
+    "command": "eth",
+    "symbol": "ETH",
+    "asset_type": "crypto"
+  },
+  {
+    "command": "silver",
+    "symbol": "XAG",
+    "asset_type": "metal"
+  }
+]

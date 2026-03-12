@@ -1,0 +1,80 @@
+2026-03-12 19:03:44 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None commands=/goldprice,/btcprice,/ethprice
+2026-03-12 19:05:08 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None commands=/goldprice,/btcprice,/ethprice
+2026-03-12 19:06:12 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None commands=/goldprice,/btcprice,/ethprice
+2026-03-12 19:06:49 | INFO | multi_ticker_bot | START /goldprice chat_id=-5162003345 thread_id=None user_id=593923936 symbol=XAU
+2026-03-12 19:06:50 | ERROR | multi_ticker_bot | END /goldprice error chat_id=-5162003345 thread_id=None symbol=XAU duration_ms=861.94
+Traceback (most recent call last):
+  File "/Users/khalwenter/Desktop/TGticker/handlers/commands.py", line 83, in handler
+    result = price_client.fetch_price(asset_name=asset_name, symbol=symbol)
+  File "/Users/khalwenter/Desktop/TGticker/services/price_client.py", line 32, in fetch_price
+    return self._fetch_gold_price(asset_name, symbol)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/khalwenter/Desktop/TGticker/services/price_client.py", line 49, in _fetch_gold_price
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/khalwenter/Desktop/TGticker/venv/lib/python3.13/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://gold-api.com/price/XAU
+2026-03-12 19:07:07 | INFO | multi_ticker_bot | START /goldprice chat_id=-5162003345 thread_id=None user_id=593923936 symbol=XAU
+2026-03-12 19:07:07 | ERROR | multi_ticker_bot | END /goldprice error chat_id=-5162003345 thread_id=None symbol=XAU duration_ms=643.32
+Traceback (most recent call last):
+  File "/Users/khalwenter/Desktop/TGticker/handlers/commands.py", line 83, in handler
+    result = price_client.fetch_price(asset_name=asset_name, symbol=symbol)
+  File "/Users/khalwenter/Desktop/TGticker/services/price_client.py", line 32, in fetch_price
+    return self._fetch_gold_price(asset_name, symbol)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/khalwenter/Desktop/TGticker/services/price_client.py", line 49, in _fetch_gold_price
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/khalwenter/Desktop/TGticker/venv/lib/python3.13/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://gold-api.com/price/XAU
+2026-03-12 19:07:43 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None commands=/goldprice,/btcprice,/ethprice
+2026-03-12 19:07:53 | INFO | multi_ticker_bot | START /goldprice chat_id=-5162003345 thread_id=None user_id=593923936 symbol=XAU
+2026-03-12 19:07:53 | ERROR | multi_ticker_bot | END /goldprice error chat_id=-5162003345 thread_id=None symbol=XAU duration_ms=667.46
+Traceback (most recent call last):
+  File "/Users/khalwenter/Desktop/TGticker/handlers/commands.py", line 83, in handler
+    result = price_client.fetch_price(asset_name=asset_name, symbol=symbol)
+  File "/Users/khalwenter/Desktop/TGticker/services/price_client.py", line 32, in fetch_price
+    return self._fetch_gold_price(asset_name, symbol)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/khalwenter/Desktop/TGticker/services/price_client.py", line 49, in _fetch_gold_price
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/khalwenter/Desktop/TGticker/venv/lib/python3.13/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://gold-api.com/price/XAU
+2026-03-12 19:18:08 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None commands=/goldprice,/btcprice,/ethprice
+2026-03-12 19:18:19 | INFO | multi_ticker_bot | START /goldprice chat_id=-5162003345 thread_id=None user_id=593923936 symbol=XAU
+2026-03-12 19:18:20 | INFO | multi_ticker_bot | END /goldprice success chat_id=-5162003345 thread_id=None symbol=XAU price=5170.0 currency=USD duration_ms=858.24
+2026-03-12 19:18:26 | INFO | multi_ticker_bot | START /goldprice chat_id=-5162003345 thread_id=None user_id=593923936 symbol=XAU
+2026-03-12 19:18:27 | INFO | multi_ticker_bot | END /goldprice success chat_id=-5162003345 thread_id=None symbol=XAU price=5170.0 currency=USD duration_ms=625.42
+2026-03-12 19:18:38 | INFO | multi_ticker_bot | START /goldprice chat_id=-5162003345 thread_id=None user_id=593923936 symbol=XAU
+2026-03-12 19:18:39 | INFO | multi_ticker_bot | END /goldprice success chat_id=-5162003345 thread_id=None symbol=XAU price=5170.0 currency=USD duration_ms=697.48
+2026-03-12 19:27:14 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None tickers=/goldprice,/btcprice,/ethprice
+2026-03-12 19:28:08 | INFO | multi_ticker_bot | START /goldprice chat_id=-5162003345 thread_id=None user_id=593923936 symbol=XAU
+2026-03-12 19:28:09 | INFO | multi_ticker_bot | END /goldprice success chat_id=-5162003345 thread_id=None symbol=XAU price=5171.399902 currency=USD duration_ms=873.86
+2026-03-12 19:36:18 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 19:36:38 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 19:37:01 | INFO | multi_ticker_bot | START /goldprice chat_id=-5162003345 thread_id=None user_id=593923936 symbol=XAU
+2026-03-12 19:37:03 | INFO | multi_ticker_bot | END /goldprice success chat_id=-5162003345 thread_id=None symbol=XAU price=5175.700195 currency=USD duration_ms=1185.9
+2026-03-12 19:37:05 | INFO | multi_ticker_bot | START /btcprice chat_id=-5162003345 thread_id=None user_id=593923936 symbol=BTC
+2026-03-12 19:37:05 | INFO | multi_ticker_bot | END /btcprice success chat_id=-5162003345 thread_id=None symbol=BTC price=70326.0 currency=USD duration_ms=169.33
+2026-03-12 19:37:08 | INFO | multi_ticker_bot | START /ethprice chat_id=-5162003345 thread_id=None user_id=593923936 symbol=ETH
+2026-03-12 19:37:09 | INFO | multi_ticker_bot | END /ethprice success chat_id=-5162003345 thread_id=None symbol=ETH price=2061.08 currency=USD duration_ms=369.4
+2026-03-12 19:37:22 | INFO | multi_ticker_bot | CREATE_TICKER received text=xag/silver
+2026-03-12 19:37:25 | INFO | multi_ticker_bot | START /silverprice chat_id=-5162003345 thread_id=None user_id=593923936 symbol=XAG
+2026-03-12 19:37:26 | INFO | multi_ticker_bot | END /silverprice success chat_id=-5162003345 thread_id=None symbol=XAG price=87.336998 currency=USD duration_ms=690.43
+2026-03-12 19:47:38 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 19:49:13 | INFO | multi_ticker_bot | START /goldprice chat_id=-5162003345 thread_id=None user_id=593923936 symbol=XAU
+2026-03-12 19:49:14 | INFO | multi_ticker_bot | END /goldprice success chat_id=-5162003345 thread_id=None symbol=XAU price=5178.399902 currency=USD duration_ms=992.66
+2026-03-12 19:49:16 | INFO | multi_ticker_bot | START /goldprice chat_id=-5162003345 thread_id=None user_id=593923936 symbol=XAU
+2026-03-12 19:49:17 | INFO | multi_ticker_bot | END /goldprice success chat_id=-5162003345 thread_id=None symbol=XAU price=5178.399902 currency=USD duration_ms=629.91
+2026-03-12 19:49:25 | INFO | multi_ticker_bot | START /btcprice chat_id=-5162003345 thread_id=None user_id=593923936 symbol=BTC
+2026-03-12 19:49:25 | INFO | multi_ticker_bot | END /btcprice success chat_id=-5162003345 thread_id=None symbol=BTC price=70547.0 currency=USD duration_ms=384.59
+2026-03-12 19:53:11 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 19:53:28 | INFO | multi_ticker_bot | START /goldprice chat_id=-5162003345 thread_id=None user_id=593923936 symbol=XAU
+2026-03-12 19:53:28 | INFO | multi_ticker_bot | END /goldprice success chat_id=-5162003345 thread_id=None symbol=XAU price=5184.899902 currency=USD duration_ms=642.95
+2026-03-12 19:54:49 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 19:55:43 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 19:56:50 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
