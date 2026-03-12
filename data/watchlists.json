@@ -1,0 +1,46 @@
+[
+  {
+    "id": "-5162003345:593923936:XAU:1773329307.309125",
+    "chat_id": -5162003345,
+    "user_id": 593923936,
+    "symbol": "XAU",
+    "asset_type": "metal",
+    "quantity": 1.0,
+    "added_price": 5129.600098,
+    "currency": "USD",
+    "added_at": "2026-03-12T15:28:27.309168+00:00"
+  },
+  {
+    "id": "-5162003345:593923936:BTC:1773332284.572582",
+    "chat_id": -5162003345,
+    "user_id": 593923936,
+    "symbol": "BTC",
+    "asset_type": "crypto",
+    "quantity": 1.0,
+    "added_price": 70214.0,
+    "currency": "USD",
+    "added_at": "2026-03-12T16:18:04.572607+00:00"
+  },
+  {
+    "id": "-5162003345:593923936:ETH:1773332985.996561",
+    "chat_id": -5162003345,
+    "user_id": 593923936,
+    "symbol": "ETH",
+    "asset_type": "crypto",
+    "quantity": 1.0,
+    "added_price": 2065.15,
+    "currency": "USD",
+    "added_at": "2026-03-12T16:29:45.996593+00:00"
+  },
+  {
+    "id": "-5162003345:593923936:TAO:1773333071.366193",
+    "chat_id": -5162003345,
+    "user_id": 593923936,
+    "symbol": "TAO",
+    "asset_type": "crypto",
+    "quantity": 1.0,
+    "added_price": 213.94,
+    "currency": "USD",
+    "added_at": "2026-03-12T16:31:11.366228+00:00"
+  }
+]

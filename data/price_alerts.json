@@ -1,0 +1,38 @@
+[
+  {
+    "id": "-5162003345:593923936:XAU:1773332723.953301",
+    "chat_id": -5162003345,
+    "user_id": 593923936,
+    "symbol": "XAU",
+    "asset_type": "metal",
+    "target_price": 5138.0,
+    "direction": "up",
+    "is_active": true,
+    "created_at": "2026-03-12T16:25:23.953325+00:00",
+    "last_triggered_at": null
+  },
+  {
+    "id": "-5162003345:593923936:BTC:1773332748.063012",
+    "chat_id": -5162003345,
+    "user_id": 593923936,
+    "symbol": "BTC",
+    "asset_type": "crypto",
+    "target_price": 70300.0,
+    "direction": "down",
+    "is_active": true,
+    "created_at": "2026-03-12T16:25:48.063044+00:00",
+    "last_triggered_at": "2026-03-12T16:27:20.444108+00:00"
+  },
+  {
+    "id": "-5162003345:593923936:XAU:1773332893.230541",
+    "chat_id": -5162003345,
+    "user_id": 593923936,
+    "symbol": "XAU",
+    "asset_type": "metal",
+    "target_price": 5132.0,
+    "direction": "down",
+    "is_active": true,
+    "created_at": "2026-03-12T16:28:13.230571+00:00",
+    "last_triggered_at": "2026-03-12T16:32:21.239269+00:00"
+  }
+]

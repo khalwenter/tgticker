@@ -2,19 +2,16 @@ from __future__ import annotations
 
 import time
 
-from telegram import Update
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.constants import ParseMode
 from telegram.ext import ContextTypes
 
 from config import settings
-from logger import logger
 from services.price_client import PriceClient
 from services.storage import JsonStorage
-from services.ticker_registry import TickerRegistry
 
 storage = JsonStorage()
 price_client = PriceClient()
-registry = TickerRegistry(settings.ticker_file)
 
 
 def _is_allowed(update: Update) -> bool:
@@ -41,9 +38,19 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.effective_message.reply_text(
         "Ticker bot is running.\n"
         "Use /commands to view available commands.\n"
-        "Use /createticker to add new ticker commands.\n"
-        "Use /removecommands to remove a ticker command.\n"
-        "Use /removetickers to manage tickers."
+        "Use /topstock to view top stocks.\n"
+        "Use /topcrypto to view top crypto symbols.\n"
+        "Use /watchlist to view saved symbols.\n"
+        "Use /removewatchlist to remove saved symbols.\n"
+        "Use /pricealert to create a price alert.\n"
+        "Use /pricealertlist to show saved price alerts.\n"
+        "Use /removealert to remove saved price alerts.\n\n"
+        "Examples:\n"
+        "/s.aapl\n"
+        "/c.btc\n"
+        "/aapl\n"
+        "/doge\n"
+        "/xau"
     )
 
 
@@ -51,24 +58,72 @@ async def commands_ls(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
     if not _is_allowed(update):
         return
 
-    tickers = registry.load()
-
-    base_commands = [
-        "/start",
-        "/commands",
-        "/createticker",
-        "/removecommands",
-        "/listtickers",
-        "/removetickers",
-    ]
-
-    ticker_commands = [f"/{item['command']}price" for item in tickers]
-
-    text = "Available commands:\n\n" + "\n".join(base_commands + ticker_commands)
+    text = (
+        "Available commands:\n\n"
+        "/start\n"
+        "/commands\n"
+        "/topstock\n"
+        "/topcrypto\n"
+        "/watchlist\n"
+        "/removewatchlist\n"
+        "/pricealert\n"
+        "/pricealertlist\n"
+        "/removealert\n\n"
+        "Forced API commands:\n"
+        "/s.aapl\n"
+        "/c.btc\n\n"
+        "Auto-scan commands:\n"
+        "/aapl\n"
+        "/doge\n"
+        "/btc\n"
+        "/xau\n"
+        "/xag\n"
+        "/xpt\n"
+        "/wti"
+    )
     await update.effective_message.reply_text(text)
 
 
-async def dynamic_price_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+def _parse_command(command_text: str) -> tuple[str, str] | None:
+    value = command_text.lstrip("/").split("@")[0].strip().lower()
+    if not value:
+        return None
+
+    if "." in value:
+        prefix, symbol = value.split(".", 1)
+        symbol = symbol.strip().upper()
+
+        if prefix not in {"s", "c"}:
+            return None
+        if not symbol or not symbol.replace("-", "").isalnum():
+            return None
+        if len(symbol) > 20:
+            return None
+
+        asset_type = "stock" if prefix == "s" else "crypto"
+        return asset_type, symbol
+
+    symbol = value.upper()
+    if not symbol.isalnum():
+        return None
+    if len(symbol) > 20:
+        return None
+
+    if symbol in {"XAU", "XAG", "XPT", "WTI"}:
+        return "metal", symbol
+
+    return "scan", symbol
+
+
+def _asset_type_from_result(source_name: str) -> str:
+    if source_name == "coingecko":
+        return "crypto"
+    if source_name == "gold-api":
+        return "metal"
+    return "stock"
+
+
+async def dynamic_symbol_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     if not _is_allowed(update):
         return
 
@@ -80,47 +135,28 @@ async def dynamic_price_command(update: Update, context: ContextTypes.DEFAULT_TY
         return
 
     raw_command = message.text.split()[0]
-    command_name = raw_command.lstrip("/").split("@")[0].lower()
+    lowered = raw_command.lstrip("/").split("@")[0].lower()
 
     reserved = {
-        "start",
-        "commands",
-        "createticker",
-        "removecommands",
-        "listtickers",
-        "removetickers",
-        "cancel",
+        "start", "commands", "topstock", "topcrypto",
+        "watchlist", "removewatchlist", "pricealert",
+        "pricealertlist", "removealert", "cancel",
     }
-    if command_name in reserved:
+    if lowered in reserved:
         return
 
-    if not command_name.endswith("price"):
+    parsed = _parse_command(raw_command)
+    if parsed is None:
         return
 
-    asset_name = command_name[:-5]
-    ticker = registry.get_by_command(asset_name)
-
-    if not ticker:
-        await message.reply_text(f"Ticker command /{command_name} not found.")
-        return
-
-    symbol = ticker["symbol"]
-    command = f"/{command_name}"
+    asset_type, symbol = parsed
     thread_id = getattr(message, "message_thread_id", None)
     started = time.perf_counter()
-
-    logger.info(
-        "START %s chat_id=%s thread_id=%s user_id=%s symbol=%s",
-        command,
-        chat.id,
-        thread_id,
-        getattr(user, "id", None),
-        symbol,
-    )
+    command = raw_command.split()[0]
 
     event = storage.build_event(
         command=command,
-        asset_name=asset_name,
+        asset_name=asset_type,
         symbol=symbol,
         chat_id=chat.id,
         thread_id=thread_id,
@@ -129,7 +165,7 @@ async def dynamic_price_command(update: Update, context: ContextTypes.DEFAULT_TY
     )
 
     try:
-        result = price_client.fetch_price(asset_name=asset_name, symbol=symbol)
+        result = price_client.fetch_price(asset_name=asset_type, symbol=symbol)
         duration_ms = round((time.perf_counter() - started) * 1000, 2)
 
         event.update(
@@ -145,37 +181,47 @@ async def dynamic_price_command(update: Update, context: ContextTypes.DEFAULT_TY
         )
         storage.append(event)
 
-        logger.info(
-            "END %s success chat_id=%s thread_id=%s symbol=%s price=%s currency=%s duration_ms=%s",
-            command,
-            chat.id,
-            thread_id,
-            result.symbol,
-            result.price,
-            result.currency,
-            duration_ms,
+        title = {
+            "gold-api": "Metal / Energy Price",
+            "coingecko": "Crypto Price",
+            "alphavantage": "Stock Price",
+            "alphavantage-commodity": "Commodity Price",
+        }.get(result.source_name, "Price")
+
+        resolved_asset_type = _asset_type_from_result(result.source_name)
+
+        keyboard = InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        text="Add to watchlist",
+                        callback_data=f"wl:add:{resolved_asset_type}:{result.symbol}:{result.price}",
+                    ),
+                    InlineKeyboardButton(
+                        text="Set alert",
+                        callback_data=f"alrt:start:{resolved_asset_type}:{result.symbol}:{result.price}",
+                    ),
+                ]
+            ]
         )
 
         text = (
-            f"<b>{asset_name.upper()} Price</b>\n"
+            f"<b>{title}</b>\n"
             f"Symbol: <code>{result.symbol}</code>\n"
-            f"Price: <b>{result.price:,.2f} {result.currency}</b>\n"
+            f"Price: <b>{result.price:,.4f} {result.currency}</b>\n"
             f"Source: <code>{result.source_name}</code>\n"
             f"Fetched: <code>{result.fetched_at}</code>"
         )
-        await message.reply_text(text, parse_mode=ParseMode.HTML)
+        await message.reply_text(text, parse_mode=ParseMode.HTML, reply_markup=keyboard)
 
     except Exception as exc:
         duration_ms = round((time.perf_counter() - started) * 1000, 2)
         event.update(
             {
-                "status": "error",
+                "status": "ignored_error",
                 "error_message": str(exc),
                 "duration_ms": duration_ms,
             }
         )
         storage.append(event)
-        logger.exception("Ticker request failed")
-        await message.reply_text(
-            f"Failed to fetch {asset_name.upper()} price. Check logs for details."
-        )
+        return

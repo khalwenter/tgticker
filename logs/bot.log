@@ -78,3 +78,439 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://gold
 2026-03-12 19:54:49 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
 2026-03-12 19:55:43 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
 2026-03-12 19:56:50 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 20:37:17 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 20:43:35 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 20:51:10 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 20:51:32 | INFO | multi_ticker_bot | START /goog chat_id=-5162003345 thread_id=None user_id=593923936 symbol=GOOG asset_type=stock
+2026-03-12 20:51:33 | INFO | multi_ticker_bot | END /goog success chat_id=-5162003345 thread_id=None symbol=GOOG price=308.42 currency=USD duration_ms=1082.04
+2026-03-12 20:51:38 | INFO | multi_ticker_bot | START /xau chat_id=-5162003345 thread_id=None user_id=593923936 symbol=XAU asset_type=metal
+2026-03-12 20:51:39 | INFO | multi_ticker_bot | END /xau success chat_id=-5162003345 thread_id=None symbol=XAU price=5153.5 currency=USD duration_ms=969.52
+2026-03-12 20:51:44 | INFO | multi_ticker_bot | START /goldprice chat_id=-5162003345 thread_id=None user_id=593923936 symbol=GOLDPRICE asset_type=stock
+2026-03-12 20:51:44 | ERROR | multi_ticker_bot | Symbol request failed
+Traceback (most recent call last):
+  File "/Users/khalwenter/Desktop/TGtickers/handlers/commands.py", line 132, in dynamic_symbol_command
+    result = price_client.fetch_price(asset_name=asset_type, symbol=symbol)
+  File "/Users/khalwenter/Desktop/TGtickers/services/price_client.py", line 37, in fetch_price
+    return self._fetch_stock_price(asset_name, symbol)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/khalwenter/Desktop/TGtickers/services/price_client.py", line 122, in _fetch_stock_price
+    raise ValueError(f"Unexpected Alpha Vantage response: {payload}")
+ValueError: Unexpected Alpha Vantage response: {'Global Quote': {}}
+2026-03-12 20:58:19 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 20:59:33 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 20:59:39 | INFO | multi_ticker_bot | START /goog chat_id=-5162003345 thread_id=None user_id=593923936 symbol=GOOG asset_type=stock
+2026-03-12 20:59:40 | INFO | multi_ticker_bot | END /goog success chat_id=-5162003345 thread_id=None symbol=GOOG price=308.42 currency=USD duration_ms=703.27
+2026-03-12 20:59:42 | INFO | multi_ticker_bot | START /asdf chat_id=-5162003345 thread_id=None user_id=593923936 symbol=ASDF asset_type=stock
+2026-03-12 20:59:43 | WARNING | multi_ticker_bot | IGNORED /asdf chat_id=-5162003345 thread_id=None symbol=ASDF duration_ms=583.47 error=Unexpected Alpha Vantage response: {'Global Quote': {}}
+2026-03-12 20:59:52 | ERROR | multi_ticker_bot | Failed to fetch top stocks
+Traceback (most recent call last):
+  File "/Users/khalwenter/Desktop/TGtickers/handlers/admin.py", line 48, in top_stock
+    items = market_service.fetch_top_stocks(limit=50)
+  File "/Users/khalwenter/Desktop/TGtickers/services/market_discovery.py", line 48, in fetch_top_stocks
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 402 Client Error: Payment Required for url: https://financialmodelingprep.com/stable/company-screener?marketCapMoreThan=1000000000&isEtf=false&isFund=false&limit=50&apikey=C8ibRhdfZufGe7KNNBn4GM9CfeVCMvAe
+2026-03-12 21:03:55 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 21:04:06 | ERROR | multi_ticker_bot | Failed to fetch top stocks
+Traceback (most recent call last):
+  File "/Users/khalwenter/Desktop/TGtickers/handlers/admin.py", line 35, in top_stock
+    items = market_service.fetch_top_stocks(limit=50)
+  File "/Users/khalwenter/Desktop/TGtickers/services/market_discovery.py", line 79, in fetch_top_stocks
+    raise ValueError("Could not parse top stocks from CompaniesMarketCap.")
+ValueError: Could not parse top stocks from CompaniesMarketCap.
+2026-03-12 21:06:35 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 21:22:39 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 21:26:28 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 21:32:43 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 21:36:47 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 21:41:03 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 21:43:59 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5094466617 source_thread_id=None
+2026-03-12 21:46:20 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5094466617 source_thread_id=None
+2026-03-12 22:11:33 | WARNING | multi_ticker_bot | JobQueue is unavailable. Price alerts will be saved but not auto-checked.
+2026-03-12 22:11:33 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 22:11:51 | ERROR | multi_ticker_bot | Telegram error occurred
+Traceback (most recent call last):
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/ext/_application.py", line 1325, in process_update
+    await coroutine
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/ext/_handlers/basehandler.py", line 158, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/khalwenter/Desktop/TGtickers/handlers/watchlist.py", line 60, in watchlist_command
+    items = watchlist_service.list_items(chat.id, getattr(user, "id", None))
+  File "/Users/khalwenter/Desktop/TGtickers/services/watchlist_service.py", line 58, in list_items
+    rows = self._read()
+  File "/Users/khalwenter/Desktop/TGtickers/services/watchlist_service.py", line 23, in _read
+    return json.loads(self.file_path.read_text(encoding="utf-8"))
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-03-12 22:14:58 | WARNING | multi_ticker_bot | JobQueue is unavailable. Price alerts will be saved but not auto-checked.
+2026-03-12 22:14:58 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 22:15:11 | ERROR | multi_ticker_bot | Telegram error occurred
+Traceback (most recent call last):
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/ext/_application.py", line 1325, in process_update
+    await coroutine
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/ext/_handlers/conversationhandler.py", line 842, in handle_update
+    new_state: object = await handler.handle_update(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        update, application, handler_check_result, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/ext/_handlers/basehandler.py", line 158, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/khalwenter/Desktop/TGtickers/handlers/watchlist.py", line 148, in add_watchlist_callback
+    existing_items = watchlist_service.list_items(chat.id, getattr(user, "id", None))
+  File "/Users/khalwenter/Desktop/TGtickers/services/watchlist_service.py", line 58, in list_items
+    rows = self._read()
+  File "/Users/khalwenter/Desktop/TGtickers/services/watchlist_service.py", line 23, in _read
+    return json.loads(self.file_path.read_text(encoding="utf-8"))
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-03-12 22:15:17 | ERROR | multi_ticker_bot | Telegram error occurred
+Traceback (most recent call last):
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/ext/_application.py", line 1325, in process_update
+    await coroutine
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/ext/_handlers/conversationhandler.py", line 842, in handle_update
+    new_state: object = await handler.handle_update(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        update, application, handler_check_result, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/ext/_handlers/basehandler.py", line 158, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/khalwenter/Desktop/TGtickers/handlers/watchlist.py", line 148, in add_watchlist_callback
+    existing_items = watchlist_service.list_items(chat.id, getattr(user, "id", None))
+  File "/Users/khalwenter/Desktop/TGtickers/services/watchlist_service.py", line 58, in list_items
+    rows = self._read()
+  File "/Users/khalwenter/Desktop/TGtickers/services/watchlist_service.py", line 23, in _read
+    return json.loads(self.file_path.read_text(encoding="utf-8"))
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-03-12 22:15:25 | ERROR | multi_ticker_bot | Telegram error occurred
+Traceback (most recent call last):
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/ext/_application.py", line 1325, in process_update
+    await coroutine
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/ext/_handlers/conversationhandler.py", line 842, in handle_update
+    new_state: object = await handler.handle_update(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        update, application, handler_check_result, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/ext/_handlers/basehandler.py", line 158, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/khalwenter/Desktop/TGtickers/handlers/watchlist.py", line 148, in add_watchlist_callback
+    existing_items = watchlist_service.list_items(chat.id, getattr(user, "id", None))
+  File "/Users/khalwenter/Desktop/TGtickers/services/watchlist_service.py", line 58, in list_items
+    rows = self._read()
+  File "/Users/khalwenter/Desktop/TGtickers/services/watchlist_service.py", line 23, in _read
+    return json.loads(self.file_path.read_text(encoding="utf-8"))
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-03-12 22:15:28 | ERROR | multi_ticker_bot | Telegram error occurred
+Traceback (most recent call last):
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/ext/_application.py", line 1325, in process_update
+    await coroutine
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/ext/_handlers/basehandler.py", line 158, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/khalwenter/Desktop/TGtickers/handlers/watchlist.py", line 59, in watchlist_command
+    items = watchlist_service.list_items(chat.id, getattr(user, "id", None))
+  File "/Users/khalwenter/Desktop/TGtickers/services/watchlist_service.py", line 58, in list_items
+    rows = self._read()
+  File "/Users/khalwenter/Desktop/TGtickers/services/watchlist_service.py", line 23, in _read
+    return json.loads(self.file_path.read_text(encoding="utf-8"))
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-03-12 22:20:09 | WARNING | multi_ticker_bot | JobQueue is unavailable. Price alerts will be saved but not auto-checked.
+2026-03-12 22:20:10 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 22:28:05 | WARNING | multi_ticker_bot | JobQueue is unavailable. Price alerts will be saved but not auto-checked.
+2026-03-12 22:28:05 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 22:29:59 | WARNING | multi_ticker_bot | JobQueue is unavailable. Price alerts will be saved but not auto-checked.
+2026-03-12 22:29:59 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 22:41:01 | INFO | multi_ticker_bot | Price alert checker scheduled.
+2026-03-12 22:41:01 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 22:46:44 | INFO | multi_ticker_bot | Price alert checker scheduled.
+2026-03-12 22:46:44 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 22:51:46 | INFO | multi_ticker_bot | Price alert checker scheduled.
+2026-03-12 22:51:46 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 22:59:59 | INFO | multi_ticker_bot | Price alert checker scheduled.
+2026-03-12 22:59:59 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 23:05:43 | INFO | multi_ticker_bot | Price alert checker scheduled.
+2026-03-12 23:05:43 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 23:05:59 | ERROR | multi_ticker_bot | Failed to fetch top stocks
+Traceback (most recent call last):
+  File "/Users/khalwenter/Desktop/TGtickers/handlers/admin.py", line 42, in top_stock
+    items = market_service.fetch_top_stocks(limit=50)
+  File "/Users/khalwenter/Desktop/TGtickers/services/market_discovery.py", line 125, in fetch_top_stocks
+    raise ValueError(f"Unexpected Alpha Vantage TOP_GAINERS_LOSERS response: {payload}")
+ValueError: Unexpected Alpha Vantage TOP_GAINERS_LOSERS response: {'Information': 'We have detected your API key as YC34EB8HJD3LNETUL and our standard API rate limit is 25 requests per day. Please subscribe to any of the premium plans at https://www.alphavantage.co/premium/ to instantly remove all daily rate limits.'}
+2026-03-12 23:06:34 | ERROR | multi_ticker_bot | Telegram error occurred
+Traceback (most recent call last):
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        pool_request.request
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/httpcore/_async/connection.py", line 101, in handle_async_request
+    raise exc
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/httpcore/_async/connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/httpcore/_async/connection.py", line 156, in _connect
+    stream = await stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/httpcore/_backends/anyio.py", line 67, in start_tls
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/request/_httpxrequest.py", line 293, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/httpx/_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/ext/_application.py", line 1325, in process_update
+    await coroutine
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/ext/_handlers/basehandler.py", line 158, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/khalwenter/Desktop/TGtickers/handlers/watchlist.py", line 123, in pricealertlist_command
+    await update.effective_message.reply_text("\n".join(lines))
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/_message.py", line 1771, in reply_text
+    return await self.get_bot().send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<20 lines>...
+    )
+    ^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/ext/_extbot.py", line 2965, in send_message
+    return await super().send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<21 lines>...
+    )
+    ^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/_bot.py", line 1019, in send_message
+    return await self._send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<19 lines>...
+    )
+    ^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/ext/_extbot.py", line 610, in _send_message
+    result = await super()._send_message(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<21 lines>...
+    )
+    ^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/_bot.py", line 731, in _send_message
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/ext/_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/request/_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/request/_baserequest.py", line 334, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "/Users/khalwenter/Desktop/TGtickers/venv/lib/python3.13/site-packages/telegram/request/_httpxrequest.py", line 310, in do_request
+    raise TimedOut from err
+telegram.error.TimedOut: Timed out
+2026-03-12 23:15:13 | INFO | multi_ticker_bot | Price alert checker scheduled.
+2026-03-12 23:15:13 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 23:15:28 | INFO | multi_ticker_bot | ALERT_CHECK_START count=1
+2026-03-12 23:15:29 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=XAU current=5126.700195 target=5135.0 condition=above triggered=False
+2026-03-12 23:15:29 | INFO | multi_ticker_bot | ALERT_BUTTON_START symbol=XAU asset_type=metal
+2026-03-12 23:15:31 | INFO | multi_ticker_bot | ALERT_CREATED symbol=XAU target=5125.0 condition=below
+2026-03-12 23:16:15 | INFO | multi_ticker_bot | ALERT_BUTTON_START symbol=XAU asset_type=metal
+2026-03-12 23:16:17 | INFO | multi_ticker_bot | ALERT_CREATED symbol=XAU target=5130.0 condition=above
+2026-03-12 23:16:28 | INFO | multi_ticker_bot | ALERT_CHECK_START count=3
+2026-03-12 23:16:28 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=XAU current=5129.0 target=5135.0 condition=above triggered=False
+2026-03-12 23:16:29 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=XAU current=5129.0 target=5125.0 condition=below triggered=False
+2026-03-12 23:16:30 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=XAU current=5129.0 target=5130.0 condition=above triggered=False
+2026-03-12 23:17:28 | INFO | multi_ticker_bot | ALERT_CHECK_START count=3
+2026-03-12 23:17:28 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=XAU current=5131.299805 target=5135.0 condition=above triggered=False
+2026-03-12 23:17:29 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=XAU current=5131.299805 target=5125.0 condition=below triggered=False
+2026-03-12 23:17:30 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=XAU current=5131.299805 target=5130.0 condition=above triggered=True
+2026-03-12 23:17:31 | INFO | multi_ticker_bot | ALERT_TRIGGERED symbol=XAU
+2026-03-12 23:18:04 | INFO | multi_ticker_bot | WATCHLIST_ADDED BTC
+2026-03-12 23:18:28 | INFO | multi_ticker_bot | ALERT_CHECK_START count=2
+2026-03-12 23:18:28 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=XAU current=5132.100098 target=5135.0 condition=above triggered=False
+2026-03-12 23:18:29 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=XAU current=5132.100098 target=5130.0 condition=above triggered=True
+2026-03-12 23:18:29 | INFO | multi_ticker_bot | ALERT_SKIPPED_COOLDOWN symbol=XAU last_triggered_at=2026-03-12T16:17:31.172213+00:00
+2026-03-12 23:18:44 | INFO | multi_ticker_bot | ALERT_BUTTON_START symbol=BTC asset_type=crypto
+2026-03-12 23:18:46 | INFO | multi_ticker_bot | ALERT_CREATED symbol=BTC target=70000.0 condition=below
+2026-03-12 23:20:47 | INFO | multi_ticker_bot | Price alert checker scheduled.
+2026-03-12 23:20:47 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 23:21:02 | INFO | multi_ticker_bot | ALERT_CHECK_START count=3
+2026-03-12 23:21:03 | WARNING | multi_ticker_bot | ALERT_CHECK_FAILED symbol=XAU error='direction'
+2026-03-12 23:21:03 | WARNING | multi_ticker_bot | ALERT_CHECK_FAILED symbol=XAU error='direction'
+2026-03-12 23:21:04 | WARNING | multi_ticker_bot | ALERT_CHECK_FAILED symbol=BTC error='direction'
+2026-03-12 23:22:02 | INFO | multi_ticker_bot | ALERT_CHECK_START count=3
+2026-03-12 23:22:03 | WARNING | multi_ticker_bot | ALERT_CHECK_FAILED symbol=XAU error='direction'
+2026-03-12 23:22:04 | WARNING | multi_ticker_bot | ALERT_CHECK_FAILED symbol=XAU error='direction'
+2026-03-12 23:22:04 | WARNING | multi_ticker_bot | ALERT_CHECK_FAILED symbol=BTC error='direction'
+2026-03-12 23:25:03 | INFO | multi_ticker_bot | Price alert checker scheduled.
+2026-03-12 23:25:03 | INFO | multi_ticker_bot | Starting bot for target_chat_id=-5162003345 source_thread_id=None
+2026-03-12 23:25:18 | INFO | multi_ticker_bot | ALERT_CHECK_START count=0
+2026-03-12 23:25:20 | INFO | multi_ticker_bot | ALERT_BUTTON_START symbol=XAU asset_type=metal
+2026-03-12 23:25:23 | INFO | multi_ticker_bot | ALERT_CREATED symbol=XAU target=5138.0 direction=up
+2026-03-12 23:25:45 | INFO | multi_ticker_bot | ALERT_BUTTON_START symbol=BTC asset_type=crypto
+2026-03-12 23:25:48 | INFO | multi_ticker_bot | ALERT_CREATED symbol=BTC target=70300.0 direction=down
+2026-03-12 23:26:18 | INFO | multi_ticker_bot | ALERT_CHECK_START count=2
+2026-03-12 23:26:19 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=XAU current=5134.5 target=5138.0 direction=up triggered=False
+2026-03-12 23:26:19 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=BTC current=70353.0 target=70300.0 direction=down triggered=False
+2026-03-12 23:27:18 | INFO | multi_ticker_bot | ALERT_CHECK_START count=2
+2026-03-12 23:27:19 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=XAU current=5136.200195 target=5138.0 direction=up triggered=False
+2026-03-12 23:27:19 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=BTC current=70270.0 target=70300.0 direction=down triggered=True
+2026-03-12 23:27:20 | INFO | multi_ticker_bot | ALERT_TRIGGERED symbol=BTC
+2026-03-12 23:28:11 | INFO | multi_ticker_bot | ALERT_BUTTON_START symbol=XAU asset_type=metal
+2026-03-12 23:28:13 | INFO | multi_ticker_bot | ALERT_CREATED symbol=XAU target=5132.0 direction=down
+2026-03-12 23:28:18 | INFO | multi_ticker_bot | ALERT_CHECK_START count=3
+2026-03-12 23:28:19 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=XAU current=5134.799805 target=5138.0 direction=up triggered=False
+2026-03-12 23:28:19 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=BTC current=70270.0 target=70300.0 direction=down triggered=True
+2026-03-12 23:28:19 | INFO | multi_ticker_bot | ALERT_SKIPPED_COOLDOWN symbol=BTC last_triggered_at=2026-03-12T16:27:20.444108+00:00
+2026-03-12 23:28:20 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=XAU current=5134.799805 target=5132.0 direction=down triggered=False
+2026-03-12 23:29:18 | INFO | multi_ticker_bot | ALERT_CHECK_START count=3
+2026-03-12 23:29:19 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=XAU current=5134.700195 target=5138.0 direction=up triggered=False
+2026-03-12 23:29:19 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=BTC current=70154.0 target=70300.0 direction=down triggered=True
+2026-03-12 23:29:19 | INFO | multi_ticker_bot | ALERT_SKIPPED_COOLDOWN symbol=BTC last_triggered_at=2026-03-12T16:27:20.444108+00:00
+2026-03-12 23:29:20 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=XAU current=5134.700195 target=5132.0 direction=down triggered=False
+2026-03-12 23:29:45 | INFO | multi_ticker_bot | WATCHLIST_ADDED ETH
+2026-03-12 23:30:18 | INFO | multi_ticker_bot | ALERT_CHECK_START count=3
+2026-03-12 23:30:19 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=XAU current=5135.100098 target=5138.0 direction=up triggered=False
+2026-03-12 23:30:19 | WARNING | multi_ticker_bot | ALERT_CHECK_FAILED symbol=BTC error=429 Client Error: Too Many Requests for url: https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&symbols=btc&include_tokens=all&order=market_cap_desc&per_page=10&page=1&sparkline=false
+2026-03-12 23:30:20 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=XAU current=5135.100098 target=5132.0 direction=down triggered=False
+2026-03-12 23:31:11 | INFO | multi_ticker_bot | WATCHLIST_ADDED TAO
+2026-03-12 23:31:18 | INFO | multi_ticker_bot | ALERT_CHECK_START count=3
+2026-03-12 23:31:19 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=XAU current=5132.799805 target=5138.0 direction=up triggered=False
+2026-03-12 23:31:19 | WARNING | multi_ticker_bot | ALERT_CHECK_FAILED symbol=BTC error=429 Client Error: Too Many Requests for url: https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&symbols=btc&include_tokens=all&order=market_cap_desc&per_page=10&page=1&sparkline=false
+2026-03-12 23:31:20 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=XAU current=5132.799805 target=5132.0 direction=down triggered=False
+2026-03-12 23:32:18 | INFO | multi_ticker_bot | ALERT_CHECK_START count=3
+2026-03-12 23:32:19 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=XAU current=5130.0 target=5138.0 direction=up triggered=False
+2026-03-12 23:32:19 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=BTC current=70104.0 target=70300.0 direction=down triggered=True
+2026-03-12 23:32:19 | INFO | multi_ticker_bot | ALERT_SKIPPED_COOLDOWN symbol=BTC last_triggered_at=2026-03-12T16:27:20.444108+00:00
+2026-03-12 23:32:20 | INFO | multi_ticker_bot | ALERT_CHECK_ITEM symbol=XAU current=5130.0 target=5132.0 direction=down triggered=True
+2026-03-12 23:32:21 | INFO | multi_ticker_bot | ALERT_TRIGGERED symbol=XAU

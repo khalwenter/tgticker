@@ -25,8 +25,11 @@ class Settings:
     gold_api_key: str | None
     coingecko_api_url: str
     coingecko_api_key: str | None
+    alphavantage_api_url: str
+    alphavantage_api_key: str | None
     data_file: Path
-    ticker_file: Path
+    watchlist_file: Path
+    price_alert_file: Path
     log_file: Path
     request_timeout: int
     default_fiat: str
@@ -43,8 +46,14 @@ settings = Settings(
         "https://api.coingecko.com/api/v3/simple/price",
     ),
     coingecko_api_key=os.getenv("COINGECKO_API_KEY") or None,
+    alphavantage_api_url=os.getenv(
+        "ALPHAVANTAGE_API_URL",
+        "https://www.alphavantage.co/query",
+    ),
+    alphavantage_api_key=os.getenv("ALPHAVANTAGE_API_KEY") or None,
     data_file=BASE_DIR / os.getenv("DATA_FILE", "data/requests.json"),
-    ticker_file=BASE_DIR / os.getenv("TICKER_FILE", "data/tickers.json"),
+    watchlist_file=BASE_DIR / os.getenv("WATCHLIST_FILE", "data/watchlists.json"),
+    price_alert_file=BASE_DIR / os.getenv("PRICE_ALERT_FILE", "data/price_alerts.json"),
     log_file=BASE_DIR / os.getenv("LOG_FILE", "logs/bot.log"),
     request_timeout=int(os.getenv("REQUEST_TIMEOUT", "15")),
     default_fiat=os.getenv("DEFAULT_FIAT", "usd").lower(),
@@ -56,11 +65,10 @@ def validate_settings() -> None:
         raise ValueError("Missing BOT_TOKEN")
 
     settings.data_file.parent.mkdir(parents=True, exist_ok=True)
-    settings.ticker_file.parent.mkdir(parents=True, exist_ok=True)
+    settings.watchlist_file.parent.mkdir(parents=True, exist_ok=True)
+    settings.price_alert_file.parent.mkdir(parents=True, exist_ok=True)
     settings.log_file.parent.mkdir(parents=True, exist_ok=True)
 
-    if not settings.data_file.exists():
-        settings.data_file.write_text("[]", encoding="utf-8")
-
-    if not settings.ticker_file.exists():
-        settings.ticker_file.write_text("[]", encoding="utf-8")
+    for path in (settings.data_file, settings.watchlist_file, settings.price_alert_file):
+        if not path.exists():
+            path.write_text("[]", encoding="utf-8")
